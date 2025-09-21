@@ -1,6 +1,6 @@
 namespace Program;
 
-public class Dwarves
+public class Dwarf
 {
     private int health = 200;
     private int attack = 20;
