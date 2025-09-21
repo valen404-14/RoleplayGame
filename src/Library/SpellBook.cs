@@ -1,11 +1,11 @@
-namespace Program;
+namespace Library;
 
 public class SpellBook
 {
     public List<Spell> spells = new List<Spell>();
 
-    public SpellBook(Spell[] initialSpells) // Recibe muchos hechizos
+    public void AddSpell(Spell spell)
     {
-        this.spells = new List<Spell>(initialSpells); // Convertir a List
+        spells.Add(spell);
     }
 }
