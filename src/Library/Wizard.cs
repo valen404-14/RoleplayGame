@@ -7,7 +7,7 @@ public class Wizard
     private int defense = 50;
     private int magic = 100;
     private List<Item> items = new List<Item>();
-    private SpellBook spellBook;    
+    private SpellBook spellBook = new SpellBook();    
 
     public void UseItem(Item item)
     {
@@ -16,11 +16,6 @@ public class Wizard
         this.health += item.GetHealth();
         this.magic += item.GetMagic();
         items.Add(item);
-    }
-
-    public Wizard(SpellBook spellBook)
-    {
-        this.spellBook = spellBook;
     }
 
     public void StudySubject(Spell spell)

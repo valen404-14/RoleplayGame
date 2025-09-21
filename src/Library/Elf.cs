@@ -1,6 +1,6 @@
 namespace Library;
 
-public class Elve
+public class Elf
 {
     private int health = 300;
     private int attack = 30;
