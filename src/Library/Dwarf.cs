@@ -17,6 +17,7 @@ public class Dwarf
 
     public int GetTotalAttack() => attack;
     public int GetTotalDefense() => defense;
+    public int GetTotalHealth() => health;
 
     public void ReceiveAttack(int damage)
     {
