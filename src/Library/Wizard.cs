@@ -26,7 +26,8 @@ public class Wizard
 
     public int GetTotalAttack() => attack;
     public int GetTotalDefense() => defense;
-
+    public int GetTotalHealth() => health;
+    public int GetTotalMagic() => magic;
     public void ReceiveAttack(int damage)
     {
         if (damage <= defense)

@@ -2,7 +2,7 @@ namespace Library;
 
 public class Elf
 {
-    private int health = 300;
+    private int health = 225;
     private int attack = 30;
     private int defense = 15;
     private int magic = 30;
@@ -20,6 +20,7 @@ public class Elf
 
     public int GetTotalAttack() => attack;
     public int GetTotalDefense() => defense;
+    public int GetTotalHealth()=> health;
 
     public void ReciveAttack(int damage)
     {
@@ -37,9 +38,9 @@ public class Elf
 
     public void Heal()
     {
-        if (health < 200)
+        if (health < 225)
         {
-            health = 200;
+            health = 225;
         }
     }
 }
