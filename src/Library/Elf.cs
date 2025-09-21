@@ -1,10 +1,12 @@
 namespace Library;
 
-public class Dwarf
+public class Elve
 {
-    private int health = 200;
-    private int attack = 20;
-    private int defense = 50;
+    private int health = 300;
+    private int attack = 30;
+    private int defense = 15;
+    private int magic = 30;
+    
     private List<Item> items = new List<Item>();
 
     public void UseItem(Item item)
@@ -12,13 +14,14 @@ public class Dwarf
         this.defense += item.GetDefense();
         this.attack += item.GetAttack();
         this.health += item.GetHealth();
+        this.magic += item.GetMagic();
         items.Add(item);
     }
 
     public int GetTotalAttack() => attack;
     public int GetTotalDefense() => defense;
 
-    public void ReceiveAttack(int damage)
+    public void ReciveAttack(int damage)
     {
         if (damage <= defense)
         {
@@ -39,5 +42,4 @@ public class Dwarf
             health = 200;
         }
     }
-
 }
