@@ -1,4 +1,4 @@
-namespace Program;
+namespace Library;
 
 public class SpellBook
 {
@@ -7,5 +7,10 @@ public class SpellBook
     public SpellBook(Spell[] initialSpells) // Recibe muchos hechizos
     {
         this.spells = new List<Spell>(initialSpells); // Convertir a List
+    }
+
+    public void AddSpell(Spell spell)
+    {
+        spells.Add(spell);
     }
 }

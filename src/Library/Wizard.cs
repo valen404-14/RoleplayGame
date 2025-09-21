@@ -1,24 +1,38 @@
 namespace Library;
 
-public class Dwarf
+public class Wizard
 {
-    private int health = 200;
-    private int attack = 20;
+    private int health = 250;
+    private int attack = 75;
     private int defense = 50;
+    private int magic = 100;
     private List<Item> items = new List<Item>();
+    private SpellBook spellBook;    
 
     public void UseItem(Item item)
     {
         this.defense += item.GetDefense();
         this.attack += item.GetAttack();
         this.health += item.GetHealth();
+        this.magic += item.GetMagic();
         items.Add(item);
+    }
+
+    public Wizard(SpellBook spellBook)
+    {
+        this.spellBook = spellBook;
+    }
+
+    public void StudySubject(Spell spell)
+    {
+        spellBook.AddSpell(spell);
+        magic = magic + spell.GetMagic();
     }
 
     public int GetTotalAttack() => attack;
     public int GetTotalDefense() => defense;
 
-    public void ReciveAttack(int damage)
+    public void ReceiveAttack(int damage)
     {
         if (damage <= defense)
         {
@@ -34,10 +48,9 @@ public class Dwarf
 
     public void Heal()
     {
-        if (health < 200)
+        if (health < 250)
         {
-            health = 200;
+            health = 250;
         }
     }
-
 }
