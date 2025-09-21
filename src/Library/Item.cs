@@ -7,6 +7,16 @@ public class Item
     private int defense;
     private int health;
     private int magic;
+
+    public Item(string name, int attack, int defense, int health, int magic)
+    {
+        this.name = name;
+        this.attack = attack;
+        this.defense = defense;
+        this.health = health;
+        this.magic = magic;
+    }
+    
     public int GetAttack() => attack;
     public int GetDefense() => defense;
     public int GetHealth() => health;
