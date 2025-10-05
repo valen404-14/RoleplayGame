@@ -20,10 +20,10 @@ public class CharacterTests
         wizard = new Wizard();
         dwarf = new Dwarf();
         elf = new Elf();
-        helmet = new Item("Casco", 0, 30, 0, 0);
-        magicWand = new Item("Bastón mágico", 10, 0, 0, 50);
-        horrocrux = new Item("Horrocrux", 0, 100, 0, 40);
-        sword = new Item("Espada", 100, 0, 0, 0);
+        helmet = new Item("Casco", 0, 30, 0, 0,false);
+        magicWand = new Item("Bastón mágico", 10, 0, 0, 50,true);
+        horrocrux = new Item("Horrocrux", 0, 100, 0, 40,true);
+        sword = new Item("Espada", 100, 0, 0, 0, false);
         wingardiumLeviosa = new Spell("Wingardium Leviosa", 20);
         avadaKedavra = new Spell("Avada Kedavra", 100);
     }
@@ -56,7 +56,7 @@ public class CharacterTests
     [Test]
     public void Heal() 
     {
-        elf.ReciveAttack(40);// El elf tiene 225 de health y 15 de defense. Al atacarlo con damage 40, se debe quedar sin defensa y su health en 200.
+        elf.ReceiveAttack(40);// El elf tiene 225 de health y 15 de defense. Al atacarlo con damage 40, se debe quedar sin defensa y su health en 200.
         elf.Heal(); // Al curarlo, su health debe volver a 225
         
         Assert.That(elf.GetTotalHealth(), Is.EqualTo(225));

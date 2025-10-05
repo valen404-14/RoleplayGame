@@ -6,15 +6,17 @@ public class Item
     private int attack;
     private int defense;
     private int health;
+    private bool hasMagic;
     private int magic;
 
-    public Item(string name, int attack, int defense, int health, int magic)
+    public Item(string name, int attack, int defense, int health, int magic,bool hasMagic)
     {
         this.name = name;
         this.attack = attack;
         this.defense = defense;
         this.health = health;
         this.magic = magic;
+        this.hasMagic = hasMagic;
     }
     
     public int GetAttack() => attack;

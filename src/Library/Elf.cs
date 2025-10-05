@@ -1,6 +1,6 @@
 namespace Library;
 
-public class Elf
+public class Elf: ICharacter
 {
     private int health = 225;
     private int attack = 30;
@@ -22,7 +22,7 @@ public class Elf
     public int GetTotalDefense() => defense;
     public int GetTotalHealth()=> health;
 
-    public void ReciveAttack(int damage)
+    public void ReceiveAttack(int damage)
     {
         if (damage <= defense)
         {

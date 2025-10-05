@@ -1,6 +1,6 @@
 namespace Library;
 
-public class Wizard
+public class Wizard : ICharacter
 {
     private int health = 250;
     private int attack = 75;
