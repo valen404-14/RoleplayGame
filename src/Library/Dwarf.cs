@@ -1,43 +1,47 @@
 namespace Library;
 
-public class Dwarf:ICharacter
+public class Dwarf : ICharacter
 {
-    private int health = 200;
-    private int attack = 20;
-    private int defense = 50;
-    private List<Item> items = new List<Item>();
+    private int _health = 200;
+    private int _attack = 20;
+    private int _defense = 50;
+    private List<Item> _items = new List<Item>();
 
     public void UseItem(Item item)
     {
-        this.defense += item.GetDefense();
-        this.attack += item.GetAttack();
-        this.health += item.GetHealth();
-        items.Add(item);
+        if (item.HasMagic())
+        {
+            return;
+        }
+        this._defense += item.GetDefense();
+        this._attack += item.GetAttack();
+        this._health += item.GetHealth();
+        _items.Add(item);
     }
 
-    public int GetTotalAttack() => attack;
-    public int GetTotalDefense() => defense;
-    public int GetTotalHealth() => health;
+    public int GetTotalAttack() => _attack;
+    public int GetTotalDefense() => _defense;
+    public int GetTotalHealth() => _health;
 
     public void ReceiveAttack(int damage)
     {
-        if (damage <= defense)
+        if (damage <= _defense)
         {
-            defense -= damage;
+            _defense -= damage;
         }
         else
         {
-            defense -= damage;
-            health += defense;
-            defense = 0;
+            _defense -= damage;
+            _health += _defense;
+            _defense = 0;
         }
     }
 
     public void Heal()
     {
-        if (health < 200)
+        if (_health < 200)
         {
-            health = 200;
+            _health = 200;
         }
     }
 

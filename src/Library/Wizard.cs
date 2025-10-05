@@ -2,51 +2,51 @@ namespace Library;
 
 public class Wizard : ICharacter
 {
-    private int health = 250;
-    private int attack = 75;
-    private int defense = 50;
-    private int magic = 100;
-    private List<Item> items = new List<Item>();
-    private SpellBook spellBook = new SpellBook();    
+    private int _health = 250;
+    private int _attack = 75;
+    private int _defense = 50;
+    private int _magic = 100;
+    private List<Item> _items = new List<Item>();
+    private SpellBook _spellBook = new SpellBook();    
 
     public void UseItem(Item item)
     {
-        this.defense += item.GetDefense();
-        this.attack += item.GetAttack();
-        this.health += item.GetHealth();
-        this.magic += item.GetMagic();
-        items.Add(item);
+        this._defense += item.GetDefense();
+        this._attack += item.GetAttack();
+        this._health += item.GetHealth();
+        this._magic += item.GetMagic();
+        _items.Add(item);
     }
 
     public void StudySubject(Spell spell)
     {
-        spellBook.AddSpell(spell);
-        magic = magic + spell.GetMagic();
+        _spellBook.AddSpell(spell);
+        _magic = _magic + spell.GetMagic();
     }
 
-    public int GetTotalAttack() => attack;
-    public int GetTotalDefense() => defense;
-    public int GetTotalHealth() => health;
-    public int GetTotalMagic() => magic;
+    public int GetTotalAttack() => _attack;
+    public int GetTotalDefense() => _defense;
+    public int GetTotalHealth() => _health;
+    public int GetTotalMagic() => _magic;
     public void ReceiveAttack(int damage)
     {
-        if (damage <= defense)
+        if (damage <= _defense)
         {
-            defense -= damage;
+            _defense -= damage;
         }
         else
         {
-            defense -= damage;
-            health += defense;
-            defense = 0;
+            _defense -= damage;
+            _health += _defense;
+            _defense = 0;
         }
     }
 
     public void Heal()
     {
-        if (health < 250)
+        if (_health < 250)
         {
-            health = 250;
+            _health = 250;
         }
     }
 }
