@@ -31,6 +31,13 @@ public class WizardTest
         _wizard.UseItem(_magicWand);//+50
         Assert.That(_wizard.GetTotalMagic(),Is.EqualTo(310));
     }
+    [Test]
+    public void TestGetTotalAttack()
+    {
+        _wizard.UseItem(_magicWand); // Al inicializar tenía attack 75, y con el magicWand ahora deberia tener 85
+        
+        Assert.That(_wizard.GetTotalAttack(), Is.EqualTo(85));
+    }
 
     [Test]
     public void ReceiveAttackTest()

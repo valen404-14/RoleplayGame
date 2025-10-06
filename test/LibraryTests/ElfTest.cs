@@ -7,6 +7,7 @@ public class ElfTest
     private Elf _elf;
     private Item _helmet;
     private Item _heathPotion;
+    private Item _bow;
 
     [SetUp]
     public void Setup()
@@ -15,6 +16,7 @@ public class ElfTest
         _elf = new Elf();
         _helmet = new Item("Casco", 0, 30, 0, 0,false);
         _heathPotion = new Item("Poción de vida",0,0,50,0,false);
+        _bow = new Item("Arco", 70, 0, 0, 0, false);
     }
     [Test]
     public void TestGetTotalDefense()
@@ -22,6 +24,13 @@ public class ElfTest
         _elf.UseItem(_helmet); // Al inicializar tenía defense 15, y con el helmte ahora deberia tener 45
         
         Assert.That(_elf.GetTotalDefense(), Is.EqualTo(45));
+    }
+    [Test]
+    public void TestGetTotalAttack()
+    {
+        _elf.UseItem(_bow); // Al inicializar tenía attack 30, y con el bow ahora deberia tener 100
+        
+        Assert.That(_elf.GetTotalAttack(), Is.EqualTo(100));
     }
     
     [Test]
